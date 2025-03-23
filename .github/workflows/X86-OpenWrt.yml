@@ -28,7 +28,7 @@ jobs:
         remove-haskell: 'true'
         remove-codeql: 'true'
         
-    - name: 开始
+    - name: 准备结束
       uses: actions/checkout@main
       
     - name: 初始化构建依赖关系
