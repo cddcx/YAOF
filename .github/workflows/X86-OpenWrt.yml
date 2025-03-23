@@ -47,7 +47,7 @@ jobs:
         sudo -E git config --global core.abbrev auto
         df -h
         
-    - name: 准备
+    - name: 预处理
       run: |
         sudo chown -R runner:runner /home/runner/work/YAOF
         cp -r ./SCRIPTS/X86/. ./SCRIPTS/
@@ -67,7 +67,7 @@ jobs:
       run: |
         cp -rf ../SEED/X86/config.seed .config
         
-    - name: 转换翻译
+    - name: 转换成中文翻译
       working-directory: ${{ github.workspace }}/openwrt
       run: |
         /bin/bash 03_convert_translation.sh
