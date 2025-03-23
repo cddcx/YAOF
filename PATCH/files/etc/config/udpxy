@@ -1,0 +1,9 @@
+
+config udpxy
+	option disabled '0'
+	option respawn '1'
+	option status '1'
+	option bind 'br-lan'
+	option port '4100'
+	option source 'eth3'
+	option source_network 'IPTV'
