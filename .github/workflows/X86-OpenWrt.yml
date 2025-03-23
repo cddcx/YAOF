@@ -141,18 +141,11 @@ jobs:
         zip X86-GC404-$(date +%Y-%m-%d)-${{ env.latest_release }}-sfs.zip *squashfs-combined*
         ls -Ahl
         
-    - name: 创建发布
-      id: create_release
-      uses: ncipollo/release-action@main
+    - name: 上传固件
+      uses: actions/upload-artifact@main
       with:
         name: OpenWRT-${{ env.latest_release }}
-        allowUpdates: true
-        prerelease: false
-        tag: ${{ env.latest_release }}
-        commit: "24.10"
-        replacesArtifacts: true
-        token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: ./artifact/*.zip
+        path: ${{ env.FIRMWARE }}
         
-    - name: Print Disk Space After
+    - name:剩余磁盘空间
       run: df -h
