@@ -135,8 +135,10 @@ jobs:
         rm -rf feeds.buildinfo
         rm -rf version.buildinfo
         rm -rf *kernel.bin
+        rm -rf kernel-debug.tar.zs
         rm -rf profiles.json
         rm -rf *rootfs.img
+        rm -rf *rootfs.img.gz
         rm -rf *rootfs.tar.gz
         rm -rf *.manifest
         rm -rf sha256sums
