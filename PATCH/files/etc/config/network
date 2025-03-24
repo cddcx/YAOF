@@ -6,8 +6,8 @@ config interface 'loopback'
 	option netmask '255.0.0.0'
 
 config globals 'globals'
-	option ula_prefix 'fd12:3903:d6c4::/48'
-	option packet_steering '1'
+	option packet_steering '2'
+	option steering_flows '128'
 
 config device
 	option name 'br-lan'
@@ -22,6 +22,7 @@ config interface 'lan'
 	option ipaddr '192.168.3.2'
 	option netmask '255.255.255.0'
 	option ip6assign '64'
+        option ip6ifaceid 'eui64'
 	option delegate '0'
 	option gateway '192.168.3.1'
 	option dns '192.168.3.1'
