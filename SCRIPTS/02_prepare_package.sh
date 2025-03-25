@@ -4,6 +4,8 @@ clear
 ### 必要的 Patches ###
 # BBRv3
 cp -rf ../PATCH/kernel/bbr3/* ./target/linux/generic/backport-6.6/
+# btf
+cp -rf ../PATCH/kernel/btf/* ./target/linux/generic/hack-6.6/
 # LRNG
 cp -rf ../PATCH/kernel/lrng/* ./target/linux/generic/hack-6.6/
 echo '
@@ -17,10 +19,6 @@ CONFIG_LRNG_CPU=y
 CONFIG_LRNG_SELFTEST=y
 # CONFIG_LRNG_SELFTEST_PANIC is not set
 ' >>./target/linux/generic/config-6.6
-
-### Other Kernel Hack 部分 ###
-# btf
-cp -rf ../PATCH/kernel/btf/* ./target/linux/generic/hack-6.6/
 
 ### ADD PKG 部分 ###
 cp -rf ../OpenWrt-Add ./package/new
