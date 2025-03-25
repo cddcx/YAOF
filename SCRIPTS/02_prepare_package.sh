@@ -3,11 +3,11 @@ clear
 
 ### 必要的 Patches ###
 # BBRv3
-cp -rf ../PATCH/kernel/bbr3/* ./target/linux/generic/backport-6.6/
+cp -rf ${GITHUB_WORKSPACE}/patch/kernel/bbr3/* ./target/linux/generic/backport-6.6/
 # btf
-cp -rf ../PATCH/kernel/btf/* ./target/linux/generic/hack-6.6/
+cp -rf ${GITHUB_WORKSPACE}/patch/kernel/btf/* ./target/linux/generic/hack-6.6/
 # LRNG
-cp -rf ../PATCH/kernel/lrng/* ./target/linux/generic/hack-6.6/
+cp -rf ${GITHUB_WORKSPACE}/patch/kernel/lrng/* ./target/linux/generic/hack-6.6/
 echo '
 # CONFIG_RANDOM_DEFAULT_IMPL is not set
 CONFIG_LRNG=y
@@ -21,7 +21,6 @@ CONFIG_LRNG_SELFTEST=y
 ' >>./target/linux/generic/config-6.6
 
 ### ADD PKG 部分 ###
-cp -rf ../OpenWrt-Add ./package/new
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box,frp,microsocks,shadowsocks-libev,zerotier,daed}
 rm -rf feeds/luci/applications/{luci-app-frps,luci-app-frpc,luci-app-zerotier,luci-app-filemanager}
 rm -rf feeds/packages/utils/coremark
